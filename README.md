@@ -1,9 +1,11 @@
-# aha-cli
+webpack
 
-Work in progress.
+`watch` "webpack" app/src`
 
-A cli tool for developers who work in teams that use Aha!, but who prefer the command line to the web app.
+sass / babel
 
-The developers are not affiliated with Aha... just happy users.  :)
+`npm run dev`
 
-Not sure how far we're gonna take this... just playing for now.
+server
+
+nodemon --watch index.html --watch dist/server.js dist/server.js
