@@ -2980,6 +2980,10 @@ input[type="button"].btn-block {
   .hidden-print {
     display: none !important; } }
 
+html {
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll; }
+
 body {
   padding-top: 55px; }
 
@@ -3001,6 +3005,11 @@ body {
     position: absolute;
     top: 0;
     left: 0; }
+
+.nav-tabs {
+  margin-top: 22px;
+  margin-left: 20px;
+  max-width: 70%; }
 
 .footer {
   background: #eee;

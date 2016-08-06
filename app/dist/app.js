@@ -111,27 +111,25 @@
 	          )
 	        ),
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'jumbotron' },
+	          'ul',
+	          { className: 'nav nav-tabs' },
 	          _react2.default.createElement(
-	            'h1',
-	            null,
-	            'jspurf'
+	            'li',
+	            { role: 'presentation' },
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: '' },
+	              'Home'
+	            )
 	          ),
 	          _react2.default.createElement(
-	            'p',
-	            null,
-	            ' Do something with the cat here'
-	          ),
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: '' },
-	            'Home'
-	          ),
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: '/experiments' },
-	            'Experiments'
+	            'li',
+	            { role: 'presentation' },
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: '/experiments' },
+	              'Experiments'
+	            )
 	          )
 	        ),
 	        _react2.default.createElement(
