@@ -39,7 +39,11 @@ $logoWidth: 75px;
 	width:30%;
 	border:1px solid;
 	height: 15em;
-	background: darkslategrey;
+	background: $gray-dark;
+	&__text {
+		font-size:30px;
+		color:$gray-lighter;
+	}
 }
 
 .code-block{
