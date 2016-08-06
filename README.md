@@ -8,4 +8,4 @@ sass / babel
 
 server
 
-nodemon --watch index.html --watch dist/server.js dist/server.js
+nodemon --watch index.html --watch src/server.js dist/server.js

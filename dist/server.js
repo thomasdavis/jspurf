@@ -42,9 +42,23 @@ _pg2.default.connect(DATABASE_URL, function (dberr, client) {
     });
   });
 
+  app.get('/api/experiments/:id', function (req, res) {
+    console.log('load experiment');
+    var id = req.params.id;
+    client.query('select * from experiments WHERE id = ' + id, function (err, experiments) {
+      var rows = experiments.rows;
+
+      var experiment = rows[0];
+      client.query('select * from snippets WHERE experiment_id = ' + id, function (err, snippets) {
+        console.log(snippets);
+        experiment.snippets = snippets.rows;
+        res.send(experiment);
+      });
+    });
+  });
+
   app.get('*', function (req, res) {
     res.send(indexTemplate);
   });
-
   app.listen(PORT);
 });

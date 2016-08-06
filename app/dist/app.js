@@ -64,6 +64,10 @@
 
 	var _experiments2 = _interopRequireDefault(_experiments);
 
+	var _experiment = __webpack_require__(362);
+
+	var _experiment2 = _interopRequireDefault(_experiment);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -126,7 +130,7 @@
 	          ),
 	          _react2.default.createElement(
 	            _reactRouter.Link,
-	            { to: 'experiments' },
+	            { to: '/experiments' },
 	            'Experiments'
 	          )
 	        ),
@@ -151,7 +155,8 @@
 	    _reactRouter.Route,
 	    { path: '/', component: App },
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _home2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: 'experiments', component: _experiments2.default })
+	    _react2.default.createElement(_reactRouter.Route, { path: 'experiments', component: _experiments2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'experiments/:id', component: _experiment2.default })
 	  )
 	), document.getElementById('app'));
 
@@ -27302,6 +27307,8 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouter = __webpack_require__(175);
+
 	var _codeeditor = __webpack_require__(241);
 
 	var _codeeditor2 = _interopRequireDefault(_codeeditor);
@@ -27360,7 +27367,25 @@
 	          'div',
 	          { className: 'jumbotron' },
 	          (0, _map2.default)(experiments, function (experiment) {
-	            return _react2.default.createElement(_codeeditor2.default, experiment);
+	            return _react2.default.createElement(
+	              'div',
+	              null,
+	              _react2.default.createElement(
+	                'h3',
+	                null,
+	                _react2.default.createElement(
+	                  _reactRouter.Link,
+	                  { to: '/experiments/' + experiment.id },
+	                  experiment.name
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'p',
+	                { className: 'spiel' },
+	                experiment.description,
+	                ' '
+	              )
+	            );
 	          })
 	        )
 	      );
@@ -32640,6 +32665,89 @@
 
 	module.exports = createBaseEach;
 
+
+/***/ },
+/* 362 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(175);
+
+	var _codeeditor = __webpack_require__(241);
+
+	var _codeeditor2 = _interopRequireDefault(_codeeditor);
+
+	var _superagent = __webpack_require__(242);
+
+	var _superagent2 = _interopRequireDefault(_superagent);
+
+	var _map = __webpack_require__(248);
+
+	var _map2 = _interopRequireDefault(_map);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ExperimentPage = function (_Component) {
+	  _inherits(ExperimentPage, _Component);
+
+	  function ExperimentPage(props) {
+	    _classCallCheck(this, ExperimentPage);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ExperimentPage).call(this, props));
+
+	    _this.state = {
+	      experiment: {}
+	    };
+	    return _this;
+	  }
+
+	  _createClass(ExperimentPage, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+
+	      _superagent2.default.get('/api/experiments/' + this.props.params.id).set('Accept', 'application/json').end(function (err, res) {
+	        console.log(res.body);
+	        _this2.setState({
+	          experiment: res.body
+	        });
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var experiment = this.state.experiment;
+
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        experiment.name,
+	        'asdads'
+	      );
+	    }
+	  }]);
+
+	  return ExperimentPage;
+	}(_react.Component);
+
+	exports.default = ExperimentPage;
 
 /***/ }
 /******/ ]);

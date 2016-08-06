@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link } from 'react-router'
 
 import CodeEditor from './codeeditor';
 import request from 'superagent';
@@ -7,11 +8,11 @@ import map from 'lodash/map';
 export default class ExperimentsPage extends Component {
 
   constructor(props) {
-     super(props);
-     this.state = {
-       experiments: [],
-     };
-   }
+    super(props);
+    this.state = {
+      experiments: [],
+    };
+  }
 
   componentDidMount () {
     request.get('api/experiments')
@@ -22,13 +23,16 @@ export default class ExperimentsPage extends Component {
           experiments: res.body,
         })
       });
-  }
+  };
+
   render () {
     const {experiments} = this.state;
     return (<div>
       <div className="jumbotron">
         {map(experiments, (experiment) => {
-          return <CodeEditor {...experiment} />
+          return (<div><h3><Link to={`/experiments/${experiment.id}`}>{experiment.name}</Link></h3>
+              <p className="spiel">
+              {experiment.description} </p></div>)
         })}
 
       </div>
