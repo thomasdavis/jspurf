@@ -17,7 +17,7 @@ var JSPurf = function () {
     key: "run",
     value: function run(code) {
       var time = 0;
-      var result = eval(code);
+
       return 1;
     }
   }]);

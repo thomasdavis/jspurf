@@ -1,7 +1,6 @@
 {
-    "extends": "standard",
+    "extends": "airbnb",
     "plugins": [
-        "standard",
-        "promise"
+        "react"
     ]
 }

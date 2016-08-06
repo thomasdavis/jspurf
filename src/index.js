@@ -7,9 +7,8 @@ export default class JSPurf {
 
   run (code) {
     const time = 0;
-    const result = eval(code);
+
     return 1;
   }
-
 
 }
