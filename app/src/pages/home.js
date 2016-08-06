@@ -1,25 +1,22 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import Variant from '../components/variant';
 
 export default class HomePage extends Component {
 
 
   render () {
     return (
-        <div className="theme-showcase" role="main">
-          <div className="well row">
-              <div className="col-md-8"><textarea ui-codemirror className="code-block "></textarea></div>
-              <div className="result-block col-md-3"><p className="result-block__text">awesome rersult here</p></div>
+        <div className="experiment" role="main">
+          <div className="experiment__variant">
+              <Variant />
           </div>
-          <div className="well row">
-              <div className="col-md-8"><textarea ui-codemirror className="code-block "></textarea></div>
-              <div className="result-block col-md-3"><p className="result-block__text">awesome rersult here</p></div>
+          <div className="experiment__variant">
+              <Variant />
           </div>
-          <div className="well row">
-              <div className="col-md-8"><textarea ui-codemirror className="code-block "></textarea></div>
-              <div className="result-block col-md-3"><p className="result-block__text">awesome rersult here</p></div>
+          <div className="experiment__variant">
+              <Variant />
           </div>
-
       </div>
    	);
   };
