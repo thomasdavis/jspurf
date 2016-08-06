@@ -28,7 +28,7 @@ export default class ExperimentsPage extends Component {
   render () {
     const {experiments} = this.state;
     return (<div>
-      <div className="jumbotron">
+      <div className="container">
         {map(experiments, (experiment) => {
           return (<div><h3><Link to={`/experiments/${experiment.id}`}>{experiment.name}</Link></h3>
               <p className="spiel">

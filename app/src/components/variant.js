@@ -11,7 +11,7 @@ export default class Variant extends Component {
             <div className="variant__body row">
               <div className="col-md-8 variant__code">
                 <div className="variant__header">
-                  <input type="text" placeholder="Untitled variant" className="variant__header-field" />
+                  <input type="text" placeholder="Untitled variant" value={name} className="variant__header-field" />
                 </div>
                 <textarea ui-codemirror className="code-block ">{code}</textarea>
               </div>

@@ -56,12 +56,33 @@ export default class ExperimentPage extends Component {
 
   render () {
     const {experiment} = this.state;
-    return (<div>
-      <button onClick={this.runBenchmark}>RUN THE FUCKING TEST</button>
-    {experiment.name}asdads
-    {experiment.snippets && map(experiment.snippets, (snippet) => {
-      return <Variant {...snippet} />
-    })}
-    </div>);
+
+    return (  <div className="experiment-wrapper row">
+        <div className="experiment-meta col-md-2">
+          <h1 className="experiment-meta__title">Javascript Benchmark Experiment</h1>
+          <div className="experiment-meta__field">
+            <label for="experiment_name" className="hidden">Experiment name:</label>
+            <input type="text" id="experiment_name" value={experiment.name} placeholder="Untitled experiment" className="experiment-meta__field-item" />
+          </div>
+
+          <div className="experiment-meta__field">
+            <label for="experiment_description" className="hidden">Experiment name:</label>
+            <textarea id="experiment_name" value={experiment.description}  placeholder="No description" className="experiment-meta__field-item" />
+          </div>
+
+          <div className="btn-group">
+            <button className="btn btn-primary" onClick={this.runBenchmark}>Run experiment</button>
+            <button className="btn btn-success">Add variant</button>
+          </div>
+        </div>
+        <div className="experiment col-md-10" role="main">
+          {experiment.snippets && map(experiment.snippets, (snippet) => {
+            return (
+                <div className="experiment__variant">
+                  <Variant {...snippet} />
+                </div>)
+          })}
+        </div>
+    </div>)
   }
 }
