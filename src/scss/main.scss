@@ -1,15 +1,21 @@
-//color variables built here : https://coolors.co/330036-30343f-534b62-000000-f7ebec
-$middle_red_purple_cl1: #330036;
-$gunmetal_cl2: #30343F;
-$dark_liver_cl3: #534B62;
-$black_cl4: #000000;
-$isabelline_cl5: #F7EBEC;
+/* Coolors Exported Palette - coolors.co/330036-3626a7-657ed4-ff331f-fbfbff */
+@import "_bootstrap.scss";
+
+/* RGB */
+$color1: rgba(51, 0, 54, 1);
+$color2: rgba(54, 38, 167, 1);
+$color3: rgba(101, 126, 212, 1);
+$color4: rgba(255, 51, 31, 1);
+$color5: rgba(251, 251, 255, 1);
 
 
 body {
-	background: $gunmetal_cl2;
-	font-family: 'FantasqueSansMonoRegular'; 
 	padding-top: 70px;
+}
+
+.navbar {
+	background: black;
+	box-shadow: 0 0 5px rgba(57,70,78,.2);
 }
 
 $logoWidth: 75px;
