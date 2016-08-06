@@ -30,6 +30,7 @@ _pg2.default.connect(DATABASE_URL, function (dberr, client) {
   var app = (0, _express2.default)();
   var PORT = process.env.PORT || 3000;
   app.use('/app', _express2.default.static(__dirname + '/../app'));
+  app.use('/public', _express2.default.static(__dirname + '/../public'));
 
   app.use(_bodyParser2.default.json());
 

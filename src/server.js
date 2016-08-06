@@ -16,6 +16,7 @@ pg.connect(DATABASE_URL, (dberr, client) => {
   const app = express();
   const PORT = process.env.PORT || 3000;
   app.use('/app', express.static(__dirname + '/../app'));
+  app.use('/public', express.static(__dirname + '/../public'));
 
   app.use(bodyParser.json());
 
