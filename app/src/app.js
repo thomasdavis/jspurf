@@ -28,9 +28,13 @@ class App extends Component {
 
         <div className="jumbotron">
           <h1>jspurf</h1>
-          <p> Do something with the cat here</p>
-          <Link to="">Home</Link>
-          <Link to="/experiments">Experiments</Link>
+            <p> Do something with the cat here</p>
+            <ul className="nav nav-tabs">
+                <li role="presentation"><Link to="">Home</Link></li>
+                <li role="presentation"><Link to="/experiments">Experiments</Link></li>
+            </ul>
+
+
         </div>
         <div className="page">
           {this.props.children}
