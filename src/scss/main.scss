@@ -1,6 +1,11 @@
 /* Coolors Exported Palette - coolors.co/330036-3626a7-657ed4-ff331f-fbfbff */
 @import "_bootstrap.scss";
 
+html {
+	overflow: -moz-scrollbars-vertical;
+	overflow-y: scroll;
+}
+
 body {
 	padding: 50px 0 60px;
 }
@@ -29,6 +34,11 @@ $logoWidth: 75px;
 		top: 0;
 		left: 0;
 	}
+}
+.nav-tabs {
+	margin-top:22px;
+	margin-left: 20px;
+	max-width: 70%;
 }
 .footer {
 	background: #eee;

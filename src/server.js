@@ -36,13 +36,11 @@ pg.connect(DATABASE_URL, (dberr, client) => {
       const { rows } = experiments;
       const experiment = rows[0];
       client.query('select * from snippets WHERE experiment_id = ' + id, (err, snippets) => {
-        console.log(snippets);
         experiment.snippets = snippets.rows;
         res.send(experiment);
       });
     });
   });
-
 
   app.get('*', (req, res) => {
     res.send(indexTemplate);

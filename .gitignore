@@ -39,3 +39,4 @@ jspm_packages
 # CSS folder
 web/css
 public/css
+app/dist
