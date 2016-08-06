@@ -2,7 +2,7 @@
 @import "_bootstrap.scss";
 
 body {
-	padding-top: 55px;
+	padding: 50px 0 60px;
 }
 
 .navbar {
@@ -20,6 +20,7 @@ $logoWidth: 75px;
 	color: white;
     line-height: 50px;
     font-size: 22px;
+    margin-left: 10px;
 
 	&__image {
 		width: $logoWidth; // Retina
@@ -36,10 +37,7 @@ $logoWidth: 75px;
 }
 
 .result-block {
-	width:30%;
-	border:1px solid;
 	height: 15em;
-	background: $gray-dark;
 	&__text {
 		font-size:30px;
 		color:$gray-lighter;
@@ -49,10 +47,12 @@ $logoWidth: 75px;
 .code-block{
 	width: 100%;
 	height: 15em;
-	border: 1px solid #dedede;
+	max-width: 100%; // Prevent resize textfield from breaking width.
 	background: #f4f4f4;
+	border: none;
 	transition: background 0.2s;
 	padding: 10px;
+	display: block;
 
 	&:hover,
 	&:focus {
@@ -63,8 +63,60 @@ $logoWidth: 75px;
 		outline: none;
 		border-color: $brand-primary;
 	}
+}
 
-	&-wrapper {
+.experiment-wrapper {
+	margin: 0;
+}
+
+.experiment {
+	border-left: 1px solid $gray-light;
+	padding: 0;
+
+	&__variant {
+		border-bottom: 1px solid $gray-light;
+	}
+}
+
+.experiment-meta {
+	padding: 30px 20px;
+
+	textarea {
+    	height: 60px;
+    	resize: none;
+    }
+
+    &__field-item {
+		padding: 10px;
+	    border: none;
+	    border-bottom: 2px solid $gray-light;
+	    margin-bottom: 10px;
+	    display: block;
+	    width: 100%;
+	    background: none;
+
+	    &:focus {
+	    	outline: none;
+	    	border-color: $brand-primary;
+	    	background: white;
+	    }
+	}
+	&__title {
+		color: black;
+		font-size: 16px;
+	}
+}
+
+.jumbotron {
+	display: none;
+}
+
+.variant {
+	margin: 0;
+
+	&__code {
+		border-right: 1px solid $gray-light;
+		padding: 0;
 		position: relative;
 
 		&:after {
@@ -78,9 +130,22 @@ $logoWidth: 75px;
 			letter-spacing: 1px;
 		}
 	}
-}
+	&__header {
+		background: white;
+	}
+	&__header-field {
+		border: none;
+		padding: 10px 10px 8px;
+		width: 100%;
+		border-bottom: 2px solid #f4f4f4;
 
-.page-main {
-	margin: 0 5px;
+		&:focus {
+			border-color: $brand-primary;
+			outline: none;
+		}
+	}
+	&__body {
+		margin: 0;
+		background: white;
+	}
 }
-

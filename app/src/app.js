@@ -17,12 +17,10 @@ class App extends Component {
     return (
       <div>
         <nav className="navbar navbar-inverse navbar-fixed-top">
-          <div className="container">
-            <div className="navbar-header">
-              <div className="navbar-logo"><img src="/public/images/logo.png" className="navbar-logo__image" alt="JsPurf cat" height="100%"/> JSPurf.</div>
-            </div>
-            <div id="navbar" className="navbar-collapse collapse">
-            </div>
+          <div className="navbar-header">
+            <div className="navbar-logo"><img src="/public/images/logo.png" className="navbar-logo__image" alt="JsPurf cat" height="100%"/> JSPurf.</div>
+          </div>
+          <div id="navbar" className="navbar-collapse collapse">
           </div>
         </nav>
 
