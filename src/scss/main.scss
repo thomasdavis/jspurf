@@ -1,4 +1,13 @@
+//color variables built here : https://coolors.co/330036-30343f-534b62-000000-f7ebec
+$middle_red_purple_cl1: #330036;
+$gunmetal_cl2: #30343F;
+$dark_liver_cl3: #534B62;
+$black_cl4: #000000;
+$isabelline_cl5: #F7EBEC;
+
+
 body {
+	background: $gunmetal_cl2;
 	font-family: 'FantasqueSansMonoRegular'; 
 	padding-top: 70px;
 }
@@ -26,4 +35,9 @@ $logoWidth: 75px;
 	background: #eee;
 	padding: 20px;
 	margin-top: 20px;
+}
+
+.code-block{
+	width: 100%;
+	height: 15em;
 }
