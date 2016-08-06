@@ -1,6 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import pg from 'pg';
+import fs from 'fs';
+
+
+const indexTemplate = fs.readFileSync('index.html', 'utf8');
 
 pg.defaults.ssl = true;
 
@@ -11,11 +15,12 @@ pg.connect(DATABASE_URL, (dberr, client) => {
 
   const app = express();
   const PORT = process.env.PORT || 3000;
+  app.use('/app', express.static(__dirname + '/../app'));
 
   app.use(bodyParser.json());
 
   app.get('/', (req, res) => {
-    res.send('WE ARE THE BaESaT');
+    res.send(indexTemplate);
   });
 
   app.get('/experiments', (req, res) => {

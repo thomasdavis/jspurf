@@ -12,7 +12,13 @@ var _pg = require('pg');
 
 var _pg2 = _interopRequireDefault(_pg);
 
+var _fs = require('fs');
+
+var _fs2 = _interopRequireDefault(_fs);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var indexTemplate = _fs2.default.readFileSync('index.html', 'utf8');
 
 _pg2.default.defaults.ssl = true;
 
@@ -23,11 +29,12 @@ _pg2.default.connect(DATABASE_URL, function (dberr, client) {
 
   var app = (0, _express2.default)();
   var PORT = process.env.PORT || 3000;
+  app.use('/app', _express2.default.static(__dirname + '/../app'));
 
   app.use(_bodyParser2.default.json());
 
   app.get('/', function (req, res) {
-    res.send('WE ARE THE BaESaT');
+    res.send(indexTemplate);
   });
 
   app.get('/experiments', function (req, res) {
