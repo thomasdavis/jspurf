@@ -25,17 +25,12 @@ class App extends Component {
             </div>
           </div>
         </nav>
+          
+        <ul className="nav nav-tabs">
+            <li role="presentation"><Link to="">Home</Link></li>
+            <li role="presentation"><Link to="/experiments">Experiments</Link></li>
+        </ul>
 
-        <div className="jumbotron">
-          <h1>jspurf</h1>
-            <p> Do something with the cat here</p>
-            <ul className="nav nav-tabs">
-                <li role="presentation"><Link to="">Home</Link></li>
-                <li role="presentation"><Link to="/experiments">Experiments</Link></li>
-            </ul>
-
-
-        </div>
         <div className="page">
           {this.props.children}
         </div>
