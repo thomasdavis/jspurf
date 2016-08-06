@@ -1,3 +1,23 @@
 body {
 	font-family: 'FantasqueSansMonoRegular'; 
 }
+
+$logoWidth: 75px;
+
+.navbar-logo {
+	padding-left: $logoWidth + 10px;
+	position: relative;
+	display: inline-block;
+	padding-right: 15px;
+	color: white;
+    line-height: 50px;
+    font-size: 22px;
+
+	&__image {
+		width: $logoWidth; // Retina
+		height: 79px; // Retina
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}

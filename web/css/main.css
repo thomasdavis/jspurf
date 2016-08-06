@@ -1,2 +1,17 @@
 body {
   font-family: 'FantasqueSansMonoRegular'; }
+
+.navbar-logo {
+  padding-left: 85px;
+  position: relative;
+  display: inline-block;
+  padding-right: 15px;
+  color: white;
+  line-height: 50px;
+  font-size: 22px; }
+  .navbar-logo__image {
+    width: 75px;
+    height: 79px;
+    position: absolute;
+    top: 0;
+    left: 0; }
