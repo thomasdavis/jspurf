@@ -5,6 +5,7 @@ import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'
 
 import HomePage from './pages/home';
 import ExperimentsPage from './pages/experiments';
+import ExperimentPage from './pages/experiment';
 
 class App extends Component {
 
@@ -29,7 +30,7 @@ class App extends Component {
           <h1>jspurf</h1>
           <p> Do something with the cat here</p>
           <Link to="">Home</Link>
-          <Link to="experiments">Experiments</Link>
+          <Link to="/experiments">Experiments</Link>
         </div>
         <div className="page">
           {this.props.children}
@@ -44,6 +45,7 @@ render((
     <Route path="/" component={App}>
       <IndexRoute component={HomePage} />
       <Route path="experiments" component={ExperimentsPage} />
+      <Route path="experiments/:id" component={ExperimentPage} />
     </Route>
   </Router>
 ), document.getElementById('app'))
