@@ -1,2 +1,7 @@
 body {
+  background: #30343F;
   font-family: 'FantasqueSansMonoRegular'; }
+
+.code-block {
+  width: 100%;
+  height: 15em; }
