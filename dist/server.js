@@ -34,16 +34,16 @@ _pg2.default.connect(DATABASE_URL, function (dberr, client) {
 
   app.use(_bodyParser2.default.json());
 
-  app.get('/', function (req, res) {
-    res.send(indexTemplate);
-  });
-
-  app.get('/experiments', function (req, res) {
+  app.get('/api/experiments', function (req, res) {
     client.query('select * from experiments', function (err, experiments) {
       var rows = experiments.rows;
 
       res.send(rows);
     });
+  });
+
+  app.get('*', function (req, res) {
+    res.send(indexTemplate);
   });
 
   app.listen(PORT);

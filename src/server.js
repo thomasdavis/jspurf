@@ -20,15 +20,17 @@ pg.connect(DATABASE_URL, (dberr, client) => {
 
   app.use(bodyParser.json());
 
-  app.get('/', (req, res) => {
-    res.send(indexTemplate);
-  });
 
-  app.get('/experiments', (req, res) => {
+
+  app.get('/api/experiments', (req, res) => {
     client.query('select * from experiments', (err, experiments) => {
       const { rows } = experiments;
       res.send(rows);
     });
+  });
+
+  app.get('*', (req, res) => {
+    res.send(indexTemplate);
   });
 
   app.listen(PORT);
