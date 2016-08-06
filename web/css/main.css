@@ -16,3 +16,8 @@ body {
     position: absolute;
     top: 0;
     left: 0; }
+
+.footer {
+  background: #eee;
+  padding: 20px;
+  margin-top: 20px; }
