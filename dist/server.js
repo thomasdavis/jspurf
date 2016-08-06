@@ -50,7 +50,6 @@ _pg2.default.connect(DATABASE_URL, function (dberr, client) {
 
       var experiment = rows[0];
       client.query('select * from snippets WHERE experiment_id = ' + id, function (err, snippets) {
-        console.log(snippets);
         experiment.snippets = snippets.rows;
         res.send(experiment);
       });
