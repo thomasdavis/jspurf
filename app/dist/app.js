@@ -66,7 +66,7 @@
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
-	      { className: 'container' },
+	      null,
 	      _react2.default.createElement(
 	        'nav',
 	        { className: 'navbar navbar-inverse navbar-fixed-top' },
@@ -88,55 +88,21 @@
 	      ),
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'container theme-showcase', role: 'main' },
+	        { className: 'page-main' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'jumbotron' },
-	          _react2.default.createElement(
-	            'h1',
-	            null,
-	            'jspurf'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            ' Do something with the cat here'
-	          ),
-	          _react2.default.createElement(_codeeditor2.default, null),
-	          _react2.default.createElement(_codeeditor2.default, null),
-	          _react2.default.createElement(_codeeditor2.default, null),
-	          _react2.default.createElement(_codeeditor2.default, null),
-	          _react2.default.createElement(_codeeditor2.default, null),
-	          _react2.default.createElement(_codeeditor2.default, null),
-	          _react2.default.createElement(_codeeditor2.default, null),
-	          _react2.default.createElement(_codeeditor2.default, null)
+	          { 'ng-controller': 'codeCtrl', className: 'code-block-wrapper' },
+	          _react2.default.createElement('textarea', { 'ui-codemirror': true, 'ng-model': 'code', className: 'code-block' })
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'well' },
-	          _react2.default.createElement(
-	            'div',
-	            { 'ng-controller': 'codeCtrl' },
-	            _react2.default.createElement('textarea', { 'ui-codemirror': true, 'ng-model': 'code', className: 'code-block' })
-	          )
+	          { 'ng-controller': 'codeCtrl', className: 'code-block-wrapper' },
+	          _react2.default.createElement('textarea', { 'ui-codemirror': true, 'ng-model': 'code', className: 'code-block' })
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'well' },
-	          _react2.default.createElement(
-	            'div',
-	            { 'ng-controller': 'codeCtrl' },
-	            _react2.default.createElement('textarea', { 'ui-codemirror': true, 'ng-model': 'code', className: 'code-block' })
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'well' },
-	          _react2.default.createElement(
-	            'div',
-	            { 'ng-controller': 'codeCtrl' },
-	            _react2.default.createElement('textarea', { 'ui-codemirror': true, 'ng-model': 'code', className: 'code-block' })
-	          )
+	          { 'ng-controller': 'codeCtrl', className: 'code-block-wrapper' },
+	          _react2.default.createElement('textarea', { 'ui-codemirror': true, 'ng-model': 'code', className: 'code-block' })
 	        )
 	      )
 	    );
