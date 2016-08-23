@@ -61,7 +61,6 @@ $logoWidth: 75px;
 	background: #f4f4f4;
 	border: none;
 	transition: background 0.2s;
-	padding: 10px;
 	display: block;
 
 	&:hover,
@@ -73,6 +72,10 @@ $logoWidth: 75px;
 		outline: none;
 		border-color: $brand-primary;
 	}
+}
+
+.CodeMirror {
+	max-height: 100%;
 }
 
 .experiment-wrapper {
