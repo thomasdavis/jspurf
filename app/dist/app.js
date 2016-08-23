@@ -27198,6 +27198,7 @@
 	    value: function componentDidMount() {
 	      // Default experiment with two variants.
 	      this.setState({
+	        variantCount: 2,
 	        experiment: {
 	          name: '',
 	          description: '',
@@ -37717,6 +37718,7 @@
 	        console.log(String(event.target));
 	      }).on('complete', function () {
 	        console.log('Fastest is ' + this.filter('fastest').map('name'));
+
 	        this.setState({
 	          running: false
 	        });
@@ -37754,7 +37756,7 @@
 	          _react2.default.createElement(
 	            'form',
 	            { className: 'input-group experiment-toolbar__run-box', onSubmit: this.runBenchmark },
-	            _react2.default.createElement('input', { type: 'number', className: 'form-control experiment-toolbar__run-multiplier' }),
+	            _react2.default.createElement('input', { type: 'number', className: 'form-control experiment-toolbar__run-multiplier', defaultValue: '100' }),
 	            _react2.default.createElement(
 	              'label',
 	              { className: 'experiment-toolbar__multiplier-label' },
@@ -37801,6 +37803,11 @@
 	                'Experiment name:'
 	              ),
 	              _react2.default.createElement('textarea', { id: 'experiment_name', value: experiment.description, placeholder: 'No description', className: 'experiment-meta__field-item' })
+	            ),
+	            _react2.default.createElement(
+	              'button',
+	              { className: 'btn btn-primary' },
+	              'Save'
 	            )
 	          ),
 	          _react2.default.createElement(

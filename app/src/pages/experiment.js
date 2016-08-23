@@ -45,6 +45,7 @@ export default class ExperimentPage extends Component {
       })
       .on('complete', function() {
         console.log('Fastest is ' + this.filter('fastest').map('name'));
+
         this.setState({
 	     	running: false
 	     });
@@ -55,7 +56,7 @@ export default class ExperimentPage extends Component {
    }
 
    addVariant () {
-
+   		
    }
 
    componentDidMount () {
@@ -64,7 +65,7 @@ export default class ExperimentPage extends Component {
        .end((err, res) => {
          console.log(res.body);
          this.setState({
-           experiment: res.body,
+           experiment: res.body
          })
        });
     };
@@ -75,7 +76,7 @@ export default class ExperimentPage extends Component {
     return (  <div className="experiment-wrapper container-fluid">
     	<div className="row experiment-toolbar">
     		<form className="input-group experiment-toolbar__run-box" onSubmit={this.runBenchmark}>
-	    		<input type="number" className="form-control experiment-toolbar__run-multiplier" />
+	    		<input type="number" className="form-control experiment-toolbar__run-multiplier" defaultValue="100" />
 	    		<label className="experiment-toolbar__multiplier-label">x</label>
 	    		<div className="input-group-btn">
 	    			<button className="btn btn-success">Run <small>▶</small></button>
@@ -93,9 +94,10 @@ export default class ExperimentPage extends Component {
 	            <label htmlFor="experiment_description" className="hidden">Experiment name:</label>
 	            <textarea id="experiment_name" value={experiment.description}  placeholder="No description" className="experiment-meta__field-item" />
 	          </div>
+	          <button className="btn btn-primary">Save</button>
 	        </div>
 	        <div className="experiment col-md-10" role="main">
-	          {experiment.snippets && map(experiment.snippets, (snippet) => {
+	         {experiment.snippets && map(experiment.snippets, (snippet) => {
 	            return (
 	                <div className="experiment__variant">
 	                  <Variant {...snippet} />

@@ -7,6 +7,7 @@ export default class HomePage extends ExperimentPage {
    componentDidMount () {
        // Default experiment with two variants.
        this.setState({
+        variantCount: 2,
         experiment: {
           name: '',
           description: '',
