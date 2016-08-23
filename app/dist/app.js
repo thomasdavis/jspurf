@@ -60,11 +60,11 @@
 
 	var _home2 = _interopRequireDefault(_home);
 
-	var _experiments = __webpack_require__(245);
+	var _experiments = __webpack_require__(372);
 
 	var _experiments2 = _interopRequireDefault(_experiments);
 
-	var _experiment = __webpack_require__(367);
+	var _experiment = __webpack_require__(245);
 
 	var _experiment2 = _interopRequireDefault(_experiment);
 
@@ -100,31 +100,29 @@
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'navbar-logo' },
-	              _react2.default.createElement('img', { src: '/public/images/logo.png', className: 'navbar-logo__image', alt: 'JsPurf cat', height: '100%' }),
-	              ' JSPurf.'
-	            )
-	          ),
-	          _react2.default.createElement('div', { id: 'navbar', className: 'navbar-collapse collapse' })
-	        ),
-	        _react2.default.createElement(
-	          'ul',
-	          { className: 'nav nav-tabs' },
-	          _react2.default.createElement(
-	            'li',
-	            { role: 'presentation' },
-	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: '' },
-	              'Home'
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: '' },
+	                _react2.default.createElement('img', { src: '/public/images/logo.png', className: 'navbar-logo__image', alt: 'JsPurf cat', height: '100%' }),
+	                ' JSPurf.'
+	              )
 	            )
 	          ),
 	          _react2.default.createElement(
-	            'li',
-	            { role: 'presentation' },
+	            'div',
+	            { id: 'navbar', className: 'navbar-collapse collapse' },
 	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: '/experiments' },
-	              'Experiments'
+	              'ul',
+	              { className: 'nav navbar-nav navbar-right' },
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(
+	                  _reactRouter.Link,
+	                  { to: '/experiments' },
+	                  'Experiments'
+	                )
+	              )
 	            )
 	          )
 	        ),
@@ -27174,6 +27172,10 @@
 
 	var _variant2 = _interopRequireDefault(_variant);
 
+	var _experiment = __webpack_require__(245);
+
+	var _experiment2 = _interopRequireDefault(_experiment);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -27182,8 +27184,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var HomePage = function (_Component) {
-	  _inherits(HomePage, _Component);
+	var HomePage = function (_ExperimentPage) {
+	  _inherits(HomePage, _ExperimentPage);
 
 	  function HomePage() {
 	    _classCallCheck(this, HomePage);
@@ -27192,79 +27194,29 @@
 	  }
 
 	  _createClass(HomePage, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'experiment-wrapper row' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'experiment-meta col-md-2' },
-	          _react2.default.createElement(
-	            'h1',
-	            { className: 'experiment-meta__title' },
-	            'Javascript Benchmark Experiment'
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'experiment-meta__field' },
-	            _react2.default.createElement(
-	              'label',
-	              { htmlFor: 'experiment_name', className: 'hidden' },
-	              'Experiment name:'
-	            ),
-	            _react2.default.createElement('input', { type: 'text', id: 'experiment_name', placeholder: 'Untitled experiment', className: 'experiment-meta__field-item' })
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'experiment-meta__field' },
-	            _react2.default.createElement(
-	              'label',
-	              { htmlFor: 'experiment_description', className: 'hidden' },
-	              'Experiment name:'
-	            ),
-	            _react2.default.createElement('textarea', { id: 'experiment_name', placeholder: 'No description', className: 'experiment-meta__field-item' })
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'btn-group' },
-	            _react2.default.createElement(
-	              'button',
-	              { className: 'btn btn-primary' },
-	              'Run experiment'
-	            ),
-	            _react2.default.createElement(
-	              'button',
-	              { className: 'btn btn-success' },
-	              'Add variant'
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'experiment col-md-10', role: 'main' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'experiment__variant' },
-	            _react2.default.createElement(_variant2.default, null)
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'experiment__variant' },
-	            _react2.default.createElement(_variant2.default, null)
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'experiment__variant' },
-	            _react2.default.createElement(_variant2.default, null)
-	          )
-	        )
-	      );
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      // Default experiment with two variants.
+	      this.setState({
+	        experiment: {
+	          name: '',
+	          description: '',
+	          snippets: [{
+	            code: '',
+	            name: '',
+	            experiment_id: null
+	          }, {
+	            code: '',
+	            name: '',
+	            experiment_id: null
+	          }]
+	        }
+	      });
 	    }
 	  }]);
 
 	  return HomePage;
-	}(_react.Component);
+	}(_experiment2.default);
 
 	exports.default = HomePage;
 	;
@@ -37647,6 +37599,14 @@
 
 	var _map2 = _interopRequireDefault(_map);
 
+	var _each = __webpack_require__(367);
+
+	var _each2 = _interopRequireDefault(_each);
+
+	var _variant = __webpack_require__(239);
+
+	var _variant2 = _interopRequireDefault(_variant);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -37655,73 +37615,178 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var ExperimentsPage = function (_Component) {
-	  _inherits(ExperimentsPage, _Component);
+	var _ = __webpack_require__(370);
+	var process = __webpack_require__(3);
+	var Benchmark = __webpack_require__(371);
+	Benchmark = Benchmark.runInContext({ _: _, process: process });
+	window.Benchmark = Benchmark;
 
-	  function ExperimentsPage(props) {
-	    _classCallCheck(this, ExperimentsPage);
+	var ExperimentPage = function (_Component) {
+	  _inherits(ExperimentPage, _Component);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ExperimentsPage).call(this, props));
+	  function ExperimentPage(props) {
+	    _classCallCheck(this, ExperimentPage);
 
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ExperimentPage).call(this, props));
+
+	    _this.runBenchmark = _this.runBenchmark.bind(_this);
 	    _this.state = {
-	      experiments: []
+	      experiment: {},
+	      running: false
 	    };
 	    return _this;
 	  }
 
-	  _createClass(ExperimentsPage, [{
+	  _createClass(ExperimentPage, [{
+	    key: 'runBenchmark',
+	    value: function runBenchmark() {
+	      var suite = new Benchmark.Suite();
+
+	      this.setState({
+	        running: true
+	      });
+
+	      // add tests
+	      var snippets = this.state.experiment.snippets;
+	      (0, _each2.default)(snippets, function (snippet) {
+	        suite.add(snippet.name, function () {
+	          eval(snippet.code);
+	        });
+	      });
+	      suite.on('cycle', function (event) {
+	        console.log(String(event.target));
+	      }).on('complete', function () {
+	        console.log('Fastest is ' + this.filter('fastest').map('name'));
+	        this.setState({
+	          running: false
+	        });
+	      })
+	      // run async
+	      .run({ 'async': true });
+	    }
+	  }, {
+	    key: 'addVariant',
+	    value: function addVariant() {}
+	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      var _this2 = this;
 
-	      _superagent2.default.get('api/experiments').set('Accept', 'application/json').end(function (err, res) {
+	      _superagent2.default.get('/api/experiments/' + this.props.params.id).set('Accept', 'application/json').end(function (err, res) {
 	        console.log(res.body);
 	        _this2.setState({
-	          experiments: res.body
+	          experiment: res.body
 	        });
 	      });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var experiments = this.state.experiments;
+	      var experiment = this.state.experiment;
+
 
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'experiment-wrapper container-fluid' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'container' },
-	          (0, _map2.default)(experiments, function (experiment) {
-	            return _react2.default.createElement(
+	          { className: 'row experiment-toolbar' },
+	          _react2.default.createElement(
+	            'form',
+	            { className: 'input-group experiment-toolbar__run-box' },
+	            _react2.default.createElement('input', { type: 'number', className: 'form-control experiment-toolbar__run-multiplier' }),
+	            _react2.default.createElement(
+	              'label',
+	              { className: 'experiment-toolbar__multiplier-label' },
+	              'x'
+	            ),
+	            _react2.default.createElement(
 	              'div',
-	              null,
+	              { className: 'input-group-btn' },
 	              _react2.default.createElement(
-	                'h3',
-	                null,
+	                'button',
+	                { className: 'btn btn-success', onClick: this.runBenchmark },
+	                'Run ',
 	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '/experiments/' + experiment.id },
-	                  experiment.name
+	                  'small',
+	                  null,
+	                  '▶'
 	                )
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                { className: 'spiel' },
-	                experiment.description,
-	                ' '
 	              )
-	            );
-	          })
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'row experiment-main' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'experiment-meta col-md-2' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'experiment-meta__field' },
+	              _react2.default.createElement(
+	                'label',
+	                { htmlFor: 'experiment_name', className: 'hidden' },
+	                'Experiment name:'
+	              ),
+	              _react2.default.createElement('input', { type: 'text', id: 'experiment_name', value: experiment.name, placeholder: 'Untitled experiment', className: 'experiment-meta__field-item' })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'experiment-meta__field' },
+	              _react2.default.createElement(
+	                'label',
+	                { htmlFor: 'experiment_description', className: 'hidden' },
+	                'Experiment name:'
+	              ),
+	              _react2.default.createElement('textarea', { id: 'experiment_name', value: experiment.description, placeholder: 'No description', className: 'experiment-meta__field-item' })
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'experiment col-md-10', role: 'main' },
+	            experiment.snippets && (0, _map2.default)(experiment.snippets, function (snippet) {
+	              return _react2.default.createElement(
+	                'div',
+	                { className: 'experiment__variant' },
+	                _react2.default.createElement(_variant2.default, snippet)
+	              );
+	            })
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'experiment-footer col-md-10 col-md-push-2' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'variant-dummy row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-md-8 variant-dummy__code' },
+	              _react2.default.createElement('div', { className: 'variant-dummay__code-title' })
+	            ),
+	            _react2.default.createElement('div', { className: 'variant-dummy__result col-md-4' })
+	          ),
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'btn btn-primary experiment-footer__item', onClick: this.addVariant },
+	            _react2.default.createElement(
+	              'small',
+	              null,
+	              '+'
+	            ),
+	            ' Add variant'
+	          )
 	        )
 	      );
 	    }
 	  }]);
 
-	  return ExperimentsPage;
+	  return ExperimentPage;
 	}(_react.Component);
 
-	exports.default = ExperimentsPage;
+	exports.default = ExperimentPage;
 
 /***/ },
 /* 246 */
@@ -42996,184 +43061,14 @@
 /* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	module.exports = __webpack_require__(368);
 
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(175);
-
-	var _codeeditor = __webpack_require__(246);
-
-	var _codeeditor2 = _interopRequireDefault(_codeeditor);
-
-	var _superagent = __webpack_require__(247);
-
-	var _superagent2 = _interopRequireDefault(_superagent);
-
-	var _map = __webpack_require__(253);
-
-	var _map2 = _interopRequireDefault(_map);
-
-	var _each = __webpack_require__(368);
-
-	var _each2 = _interopRequireDefault(_each);
-
-	var _variant = __webpack_require__(239);
-
-	var _variant2 = _interopRequireDefault(_variant);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _ = __webpack_require__(371);
-	var process = __webpack_require__(3);
-	var Benchmark = __webpack_require__(372);
-	Benchmark = Benchmark.runInContext({ _: _, process: process });
-	window.Benchmark = Benchmark;
-
-	var ExperimentPage = function (_Component) {
-	  _inherits(ExperimentPage, _Component);
-
-	  function ExperimentPage(props) {
-	    _classCallCheck(this, ExperimentPage);
-
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ExperimentPage).call(this, props));
-
-	    _this.runBenchmark = _this.runBenchmark.bind(_this);
-	    _this.state = {
-	      experiment: {}
-	    };
-	    return _this;
-	  }
-
-	  _createClass(ExperimentPage, [{
-	    key: 'runBenchmark',
-	    value: function runBenchmark() {
-	      var suite = new Benchmark.Suite();
-	      // add tests
-	      var snippets = this.state.experiment.snippets;
-	      (0, _each2.default)(snippets, function (snippet) {
-	        suite.add(snippet.name, function () {
-	          eval(snippet.code);
-	        });
-	      });
-	      suite.on('cycle', function (event) {
-	        console.log(String(event.target));
-	      }).on('complete', function () {
-	        console.log('Fastest is ' + this.filter('fastest').map('name'));
-	      })
-	      // run async
-	      .run({ 'async': true });
-	    }
-	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _this2 = this;
-
-	      _superagent2.default.get('/api/experiments/' + this.props.params.id).set('Accept', 'application/json').end(function (err, res) {
-	        console.log(res.body);
-	        _this2.setState({
-	          experiment: res.body
-	        });
-	      });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var experiment = this.state.experiment;
-
-
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'experiment-wrapper row' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'experiment-meta col-md-2' },
-	          _react2.default.createElement(
-	            'h1',
-	            { className: 'experiment-meta__title' },
-	            'Javascript Benchmark Experiment'
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'experiment-meta__field' },
-	            _react2.default.createElement(
-	              'label',
-	              { 'for': 'experiment_name', className: 'hidden' },
-	              'Experiment name:'
-	            ),
-	            _react2.default.createElement('input', { type: 'text', id: 'experiment_name', value: experiment.name, placeholder: 'Untitled experiment', className: 'experiment-meta__field-item' })
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'experiment-meta__field' },
-	            _react2.default.createElement(
-	              'label',
-	              { 'for': 'experiment_description', className: 'hidden' },
-	              'Experiment name:'
-	            ),
-	            _react2.default.createElement('textarea', { id: 'experiment_name', value: experiment.description, placeholder: 'No description', className: 'experiment-meta__field-item' })
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'btn-group' },
-	            _react2.default.createElement(
-	              'button',
-	              { className: 'btn btn-primary', onClick: this.runBenchmark },
-	              'Run experiment'
-	            ),
-	            _react2.default.createElement(
-	              'button',
-	              { className: 'btn btn-success' },
-	              'Add variant'
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'experiment col-md-10', role: 'main' },
-	          experiment.snippets && (0, _map2.default)(experiment.snippets, function (snippet) {
-	            return _react2.default.createElement(
-	              'div',
-	              { className: 'experiment__variant' },
-	              _react2.default.createElement(_variant2.default, snippet)
-	            );
-	          })
-	        )
-	      );
-	    }
-	  }]);
-
-	  return ExperimentPage;
-	}(_react.Component);
-
-	exports.default = ExperimentPage;
 
 /***/ },
 /* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(369);
-
-
-/***/ },
-/* 369 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var arrayEach = __webpack_require__(370),
+	var arrayEach = __webpack_require__(369),
 	    baseEach = __webpack_require__(362),
 	    baseIteratee = __webpack_require__(255),
 	    isArray = __webpack_require__(326);
@@ -43217,7 +43112,7 @@
 
 
 /***/ },
-/* 370 */
+/* 369 */
 /***/ function(module, exports) {
 
 	/**
@@ -43245,7 +43140,7 @@
 
 
 /***/ },
-/* 371 */
+/* 370 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -59859,7 +59754,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(340)(module)))
 
 /***/ },
-/* 372 */
+/* 371 */
 /***/ function(module, exports) {
 
 	/*!
@@ -62674,6 +62569,112 @@
 	  }
 	}.call(this));
 
+
+/***/ },
+/* 372 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(175);
+
+	var _codeeditor = __webpack_require__(246);
+
+	var _codeeditor2 = _interopRequireDefault(_codeeditor);
+
+	var _superagent = __webpack_require__(247);
+
+	var _superagent2 = _interopRequireDefault(_superagent);
+
+	var _map = __webpack_require__(253);
+
+	var _map2 = _interopRequireDefault(_map);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ExperimentsPage = function (_Component) {
+	  _inherits(ExperimentsPage, _Component);
+
+	  function ExperimentsPage(props) {
+	    _classCallCheck(this, ExperimentsPage);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ExperimentsPage).call(this, props));
+
+	    _this.state = {
+	      experiments: []
+	    };
+	    return _this;
+	  }
+
+	  _createClass(ExperimentsPage, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+
+	      _superagent2.default.get('api/experiments').set('Accept', 'application/json').end(function (err, res) {
+	        console.log(res.body);
+	        _this2.setState({
+	          experiments: res.body
+	        });
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var experiments = this.state.experiments;
+
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'container' },
+	          (0, _map2.default)(experiments, function (experiment) {
+	            return _react2.default.createElement(
+	              'div',
+	              null,
+	              _react2.default.createElement(
+	                'h3',
+	                null,
+	                _react2.default.createElement(
+	                  _reactRouter.Link,
+	                  { to: '/experiments/' + experiment.id },
+	                  experiment.name
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'p',
+	                { className: 'spiel' },
+	                experiment.description,
+	                ' '
+	              )
+	            );
+	          })
+	        )
+	      );
+	    }
+	  }]);
+
+	  return ExperimentsPage;
+	}(_react.Component);
+
+	exports.default = ExperimentsPage;
 
 /***/ }
 /******/ ]);
