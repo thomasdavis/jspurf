@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import Codemirror from 'react-codemirror';
 import 'codemirror/mode/javascript/javascript';
 
+import Result from './result';
+
 export default class Variant extends Component {
 
   constructor(props) {
@@ -23,7 +25,11 @@ export default class Variant extends Component {
                 </div>
                 <Codemirror className="code-block" value={code} options={codemirrorOptions} />
               </div>
-              <div className="result-block variant__result col-md-4"><p className="result-block__text">{name} rersult here</p></div>
+              <div className="result-block variant__result col-md-4">
+                <Result />
+                {/*<p className="result-block__text">
+                </p>*/}
+              </div>
             </div>
           </div>);
   }
