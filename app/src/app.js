@@ -18,11 +18,10 @@ class App extends Component {
       <div>
         <nav className="navbar navbar-inverse navbar-fixed-top">
           <div className="navbar-header">
-            <div className="navbar-logo"><img src="/public/images/logo.png" className="navbar-logo__image" alt="JsPurf cat" height="100%"/> JSPurf.</div>
+            <div className="navbar-logo"><Link to=""><img src="/public/images/logo.png" className="navbar-logo__image" alt="JsPurf cat" height="100%"/> JSPurf.</Link></div>
           </div>
           <div id="navbar" className="navbar-collapse collapse">
             <ul className="nav navbar-nav navbar-right">
-              <li className="active"><Link to="">Home</Link></li>
               <li><Link to="/experiments">Experiments</Link></li>
             </ul>
           </div>
