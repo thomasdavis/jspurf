@@ -48,6 +48,7 @@
     "benchmark": "^2.1.1",
     "bindings": "^1.2.1",
     "body-parser": "^1.15.2",
+    "codemirror": "^5.18.0",
     "component-emitter": "^1.2.1",
     "deprecated": "0.0.1",
     "es6-loader": "^0.2.0",
