@@ -3293,3 +3293,9 @@ body {
     border-bottom: 2px solid #f4f4f4; }
   .variant-dummy__result {
     min-height: 100px; }
+
+.result__time {
+  font-size: 30px; }
+
+.result__suffix {
+  font-size: 14px; }

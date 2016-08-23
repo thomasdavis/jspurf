@@ -215,3 +215,12 @@ $logoWidth: 75px;
 		min-height: 100px;
 	}
 }
+
+.result {
+	&__time {
+		font-size: 30px;
+	}
+	&__suffix {
+		font-size: 14px;
+	}
+}

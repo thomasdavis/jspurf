@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import NumberFormat from 'react-number-format';
 
 export default class Variant extends Component {
 
@@ -9,8 +10,7 @@ export default class Variant extends Component {
   render () {
     return (
       <div className="result">
-        <h2> results go here pur pur</h2>
-        <strong> Time Taken</strong>: 12301203102
+        <span className="result__time"><span className="glyphicon glyphicon-time"></span> <NumberFormat value={2301203102} displayType={'text'} thousandSeperator={true} /></span> <small className="result__suffix">ms</small>
       </div>
     );
   }
