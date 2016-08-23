@@ -21,13 +21,12 @@ class App extends Component {
             <div className="navbar-logo"><img src="/public/images/logo.png" className="navbar-logo__image" alt="JsPurf cat" height="100%"/> JSPurf.</div>
           </div>
           <div id="navbar" className="navbar-collapse collapse">
+            <ul className="nav navbar-nav navbar-right">
+              <li className="active"><Link to="">Home</Link></li>
+              <li><Link to="/experiments">Experiments</Link></li>
+            </ul>
           </div>
         </nav>
-          
-        <ul className="nav nav-tabs">
-            <li role="presentation"><Link to="">Home</Link></li>
-            <li role="presentation"><Link to="/experiments">Experiments</Link></li>
-        </ul>
 
         <div className="page">
           {this.props.children}
