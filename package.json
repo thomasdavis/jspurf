@@ -4,8 +4,8 @@
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "watch \"babel src --presets babel-preset-es2015 --out-dir dist && node-sass --include-path scss src/scss/main.scss public/css/main.css\" src",
+    "test": "echo \"Error: no test specified\"",
+    "dev": "watch \"node-sass --include-path scss src/scss/main.scss public/css/main.css\" src",
     "build": "babel src --presets babel-preset-es2015 --out-dir dist && node-sass --include-path scss src/scss/main.scss public/css/main.css"
   },
   "repository": {
@@ -48,6 +48,7 @@
     "benchmark": "^2.1.1",
     "bindings": "^1.2.1",
     "body-parser": "^1.15.2",
+    "codemirror": "^5.18.0",
     "component-emitter": "^1.2.1",
     "deprecated": "0.0.1",
     "es6-loader": "^0.2.0",
@@ -62,6 +63,7 @@
     "pg": "^6.0.3",
     "pg-hstore": "^2.3.2",
     "react": "^15.2.1",
+    "react-codemirror": "^0.2.6",
     "react-dom": "^15.3.0",
     "react-router": "^2.6.1",
     "reduce-component": "^1.0.1",

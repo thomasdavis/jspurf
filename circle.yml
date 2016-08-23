@@ -1,0 +1,20 @@
+deployment:
+  staging:
+    branch: master
+    commands:
+      - npm rebuild node-sass
+      - /bin/bash ./scripts/deploy.sh
+      - git push git@heroku.com:jspurf.git master
+test:
+  override:
+    - npm test
+
+machine:
+  node:
+    version: 6.2.0
+
+dependencies:
+  pre:
+    - npm install -g npm@3.x.x
+    - sudo apt-get remove openbabel
+    - npm install -g gulp babel-core babel-cli webpack
