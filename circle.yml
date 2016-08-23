@@ -2,8 +2,6 @@ deployment:
   staging:
     branch: master
     commands:
-      - NODE_ENV=production gulp build
-      # - webpack --config scripts/webpack.config.js --profile --json > dist/webpack.json
       - /bin/bash ./scripts/deploy.sh
       - git push git@heroku.com:jspurf.git master
 test:
