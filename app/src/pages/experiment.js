@@ -20,11 +20,17 @@ export default class ExperimentPage extends Component {
      this.runBenchmark = this.runBenchmark.bind(this);
      this.state = {
        experiment: {},
+       running: false
      };
    }
 
    runBenchmark () {
      var suite = new Benchmark.Suite();
+
+     this.setState({
+     	running: true
+     });
+
       // add tests
       const snippets = this.state.experiment.snippets;
       each(snippets, (snippet) => {
@@ -37,6 +43,9 @@ export default class ExperimentPage extends Component {
       })
       .on('complete', function() {
         console.log('Fastest is ' + this.filter('fastest').map('name'));
+        this.setState({
+	     	running: false
+	     });
       })
       // run async
       .run({ 'async': true });
@@ -61,12 +70,12 @@ export default class ExperimentPage extends Component {
         <div className="experiment-meta col-md-2">
           <h1 className="experiment-meta__title">Javascript Benchmark Experiment</h1>
           <div className="experiment-meta__field">
-            <label for="experiment_name" className="hidden">Experiment name:</label>
+            <label htmlFor="experiment_name" className="hidden">Experiment name:</label>
             <input type="text" id="experiment_name" value={experiment.name} placeholder="Untitled experiment" className="experiment-meta__field-item" />
           </div>
 
           <div className="experiment-meta__field">
-            <label for="experiment_description" className="hidden">Experiment name:</label>
+            <label htmlFor="experiment_description" className="hidden">Experiment name:</label>
             <textarea id="experiment_name" value={experiment.description}  placeholder="No description" className="experiment-meta__field-item" />
           </div>
 
