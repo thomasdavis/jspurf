@@ -4,7 +4,7 @@
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\"",
     "dev": "watch \"babel src --presets babel-preset-es2015 --out-dir dist && node-sass --include-path scss src/scss/main.scss public/css/main.css\" src",
     "build": "babel src --presets babel-preset-es2015 --out-dir dist && node-sass --include-path scss src/scss/main.scss public/css/main.css"
   },
