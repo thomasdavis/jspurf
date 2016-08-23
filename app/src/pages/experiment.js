@@ -24,8 +24,10 @@ export default class ExperimentPage extends Component {
      };
    }
 
-   runBenchmark () {
+   runBenchmark (e) {
      var suite = new Benchmark.Suite();
+
+     e.preventDefault();
 
      this.setState({
      	running: true
@@ -72,11 +74,11 @@ export default class ExperimentPage extends Component {
 
     return (  <div className="experiment-wrapper container-fluid">
     	<div className="row experiment-toolbar">
-    		<form className="input-group experiment-toolbar__run-box">
+    		<form className="input-group experiment-toolbar__run-box" onSubmit={this.runBenchmark}>
 	    		<input type="number" className="form-control experiment-toolbar__run-multiplier" />
 	    		<label className="experiment-toolbar__multiplier-label">x</label>
 	    		<div className="input-group-btn">
-	    			<button className="btn btn-success" onClick={this.runBenchmark}>Run <small>▶</small></button>
+	    			<button className="btn btn-success">Run <small>▶</small></button>
 	    		</div>
     		</form>
     	</div>
